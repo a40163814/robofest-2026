@@ -1,0 +1,178 @@
+.registration-section {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(74px, 10vw, 134px) 0;
+  background:
+    radial-gradient(ellipse at 70% 50%, rgba(66, 60, 113, 0.38), transparent 42%),
+    linear-gradient(110deg, #111b26, #151322 72%, #15111d);
+}
+
+.registration-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(168, 178, 201, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(168, 178, 201, 0.055) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: linear-gradient(90deg, transparent, black);
+  pointer-events: none;
+}
+
+.registration-layout {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 40px;
+}
+
+.registration-copy h2 {
+  margin: 0;
+  color: var(--paper);
+  font-family: var(--font-display);
+  font-size: clamp(3.3rem, 8vw, 7rem);
+  font-weight: 800;
+  letter-spacing: -0.075em;
+  line-height: 0.89;
+}
+
+.registration-copy h2 em {
+  color: transparent;
+  font-style: normal;
+  -webkit-text-stroke: 1px var(--cyan);
+}
+
+.registration-copy > p:not(.eyebrow) {
+  max-width: 430px;
+  margin: 23px 0 0;
+  color: #a2adbd;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.button--register {
+  min-height: 52px;
+  margin-top: 27px;
+  border: 1px solid var(--orange);
+  background: var(--orange);
+  color: #160e0a;
+}
+
+.button--register:hover {
+  border-color: #ffb18e;
+  background: #ffb18e;
+}
+
+.registration-note {
+  display: block;
+  max-width: 400px;
+  margin-top: 13px;
+  color: #8993a3;
+  font-family: var(--font-mono);
+  font-size: 7px;
+  letter-spacing: 0.08em;
+  line-height: 1.7;
+}
+
+.registration-mark {
+  position: relative;
+  display: grid;
+  width: min(100%, 360px);
+  aspect-ratio: 1;
+  place-items: center;
+  justify-self: center;
+}
+
+.mark-ring {
+  position: absolute;
+  border: 1px solid rgba(65, 231, 227, 0.3);
+  border-radius: 50%;
+}
+
+.mark-ring--outer {
+  inset: 3%;
+  border-style: dashed;
+  animation: ring-turn 42s linear infinite;
+}
+
+.mark-ring--inner {
+  inset: 17%;
+  border-color: rgba(155, 122, 255, 0.42);
+  box-shadow: inset 0 0 52px rgba(155, 122, 255, 0.07);
+}
+
+.mark-core {
+  display: grid;
+  width: 33%;
+  aspect-ratio: 1;
+  place-content: center;
+  border: 1px solid var(--cyan);
+  background: rgba(9, 15, 23, 0.82);
+  color: var(--cyan);
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 4vw, 2.8rem);
+  font-weight: 800;
+  line-height: 0.9;
+  text-align: center;
+  transform: rotate(45deg);
+}
+
+.mark-core small {
+  margin-top: 5px;
+  color: var(--orange);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+}
+
+.mark-label {
+  position: absolute;
+  color: #9ca9bb;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.16em;
+}
+
+.mark-label--top {
+  top: 0;
+}
+
+.mark-label--bottom {
+  bottom: 0;
+  color: var(--orange);
+}
+
+.mark-cross {
+  position: absolute;
+  top: 13%;
+  right: 11%;
+  color: var(--cyan);
+  font-family: var(--font-mono);
+  font-size: 19px;
+}
+
+@keyframes ring-turn {
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 700px) {
+  .registration-layout {
+    grid-template-columns: 1fr;
+    gap: 42px;
+  }
+
+  .registration-mark {
+    width: min(72vw, 290px);
+  }
+
+  .registration-copy h2 {
+    font-size: clamp(3.4rem, 16vw, 6rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mark-ring--outer {
+    animation: none;
+  }
+}

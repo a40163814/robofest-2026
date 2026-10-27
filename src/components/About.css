@@ -1,0 +1,366 @@
+.about-section {
+  position: relative;
+  background: var(--surface);
+}
+
+.section-kicker {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: #7d899a;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+}
+
+.section-kicker span:first-child {
+  color: var(--cyan);
+}
+
+.kicker-line {
+  width: 42px;
+  height: 1px;
+  background: #3b4655;
+}
+
+.about-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.04fr) minmax(0, 0.96fr);
+  align-items: center;
+  gap: clamp(40px, 9vw, 130px);
+  padding: 74px 0 58px;
+}
+
+.about-visual {
+  min-width: 0;
+}
+
+.circuit-visual {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.circuit-frame {
+  position: relative;
+  display: grid;
+  min-height: 390px;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid rgba(120, 146, 174, 0.2);
+  background:
+    radial-gradient(circle at center, rgba(65, 231, 227, 0.1), transparent 38%),
+    linear-gradient(135deg, #0d1722, #0a1019 70%);
+}
+
+.circuit-frame::before,
+.circuit-frame::after {
+  position: absolute;
+  content: "";
+  pointer-events: none;
+}
+
+.circuit-frame::before {
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(125, 150, 177, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(125, 150, 177, 0.08) 1px, transparent 1px);
+  background-size: 30px 30px;
+  mask-image: radial-gradient(ellipse at center, black, transparent 80%);
+}
+
+.circuit-frame::after {
+  inset: 16px;
+  border: 1px solid rgba(65, 231, 227, 0.1);
+}
+
+.circuit-corner {
+  position: absolute;
+  z-index: 2;
+  width: 16px;
+  height: 16px;
+  border-color: var(--cyan);
+  border-style: solid;
+}
+
+.circuit-corner--tl {
+  top: 0;
+  left: 0;
+  border-width: 1px 0 0 1px;
+}
+
+.circuit-corner--br {
+  right: 0;
+  bottom: 0;
+  border-width: 0 1px 1px 0;
+}
+
+.circuit-lines {
+  position: absolute;
+  inset: 0;
+}
+
+.circuit-lines i {
+  position: absolute;
+  display: block;
+  background: rgba(65, 231, 227, 0.44);
+}
+
+.circuit-lines i::after {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border: 1px solid var(--cyan);
+  border-radius: 50%;
+  background: var(--surface);
+  content: "";
+}
+
+.circuit-lines i:nth-child(1) {
+  top: 31%;
+  left: 11%;
+  width: 24%;
+  height: 1px;
+}
+
+.circuit-lines i:nth-child(1)::after {
+  right: 0;
+  top: -2px;
+}
+
+.circuit-lines i:nth-child(2) {
+  top: 31%;
+  left: 35%;
+  width: 1px;
+  height: 18%;
+}
+
+.circuit-lines i:nth-child(2)::after {
+  bottom: 0;
+  left: -2px;
+}
+
+.circuit-lines i:nth-child(3) {
+  top: 49%;
+  left: 35%;
+  width: 10%;
+  height: 1px;
+}
+
+.circuit-lines i:nth-child(3)::after {
+  right: 0;
+  top: -2px;
+}
+
+.circuit-lines i:nth-child(4) {
+  top: 49%;
+  right: 35%;
+  width: 10%;
+  height: 1px;
+}
+
+.circuit-lines i:nth-child(4)::after {
+  left: 0;
+  top: -2px;
+}
+
+.circuit-lines i:nth-child(5) {
+  top: 49%;
+  right: 35%;
+  width: 1px;
+  height: 22%;
+}
+
+.circuit-lines i:nth-child(5)::after {
+  bottom: 0;
+  left: -2px;
+}
+
+.circuit-lines i:nth-child(6) {
+  right: 11%;
+  bottom: 29%;
+  width: 24%;
+  height: 1px;
+}
+
+.circuit-lines i:nth-child(6)::after {
+  left: 0;
+  top: -2px;
+}
+
+.circuit-chip {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  width: 126px;
+  height: 126px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 9px;
+  border: 1px solid rgba(65, 231, 227, 0.65);
+  background: #0c1822;
+  box-shadow: 0 0 36px rgba(65, 231, 227, 0.1);
+  color: var(--cyan);
+}
+
+.circuit-chip span {
+  color: #bac6d4;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  text-align: center;
+}
+
+.circuit-tag,
+.circuit-coordinate {
+  position: absolute;
+  z-index: 2;
+  color: #8393a8;
+  font-family: var(--font-mono);
+  font-size: 7px;
+  letter-spacing: 0.11em;
+}
+
+.circuit-tag--one {
+  top: 20%;
+  left: 8%;
+}
+
+.circuit-tag--two {
+  right: 7%;
+  bottom: 19%;
+  color: var(--orange);
+}
+
+.circuit-coordinate {
+  right: 7%;
+  top: 8%;
+  line-height: 1.8;
+}
+
+.circuit-scan {
+  position: absolute;
+  bottom: 8%;
+  left: 7%;
+  color: var(--cyan);
+}
+
+.visual-caption {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 14px;
+  color: #778498;
+  font-family: var(--font-mono);
+  font-size: 7px;
+  letter-spacing: 0.1em;
+}
+
+.caption-rule {
+  width: 26px;
+  height: 1px;
+  background: #485568;
+}
+
+.eyebrow--muted {
+  margin-bottom: 19px;
+  color: var(--orange);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+}
+
+.section-title {
+  margin: 0;
+  color: var(--paper);
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 5vw, 4.6rem);
+  font-weight: 750;
+  letter-spacing: -0.065em;
+  line-height: 0.99;
+}
+
+.section-title span {
+  color: var(--cyan);
+}
+
+.about-lead {
+  max-width: 480px;
+  margin: 26px 0 0;
+  color: #d3dae4;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.about-detail {
+  max-width: 460px;
+  margin: 14px 0 0;
+  color: #8995a8;
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.inline-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 13px;
+  margin-top: 27px;
+  color: var(--cyan);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-decoration: none;
+}
+
+.inline-link svg {
+  transition: transform 180ms ease;
+}
+
+.inline-link:hover svg {
+  transform: translate(3px, -3px);
+}
+
+.about-bottom {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 17px;
+  border-top: 1px solid var(--line);
+  color: #758195;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.14em;
+}
+
+@media (max-width: 760px) {
+  .about-layout {
+    grid-template-columns: 1fr;
+    gap: 46px;
+    padding: 48px 0 34px;
+  }
+
+  .about-visual {
+    order: 2;
+  }
+
+  .about-copy {
+    order: 1;
+  }
+
+  .circuit-frame {
+    min-height: clamp(280px, 75vw, 390px);
+  }
+}
+
+@media (max-width: 440px) {
+  .about-bottom {
+    gap: 16px;
+    font-size: 7px;
+  }
+
+  .about-bottom span:last-child {
+    text-align: right;
+  }
+
+  .visual-caption {
+    font-size: 6px;
+  }
+}
